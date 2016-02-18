@@ -9,3 +9,16 @@ An awesome clone of The Movies Database to learn HTML5, CSS3 and JavaScript
 * Plantilla formulario de creación de serie
 * Plantilla de listado de series (sólo HTML5)
 * Plantilla de detalle de una serie (sólo HTML5)
+
+## Setup del entorno de desarrollo
+
+Debes tener isntalado [nodejs](https://nodejs.org/en/) y con *npm* instalar* y *less* utilizando:
+
+```
+
+$ sudo npm install -g grunt-cli less
+```
+
+A continuación clona el repositorio e instala las dependencias para grun con `npm install` desde la carpeta del proyecto.
+
+Después arranca *grunt*, utilizando el comando `grunt`.

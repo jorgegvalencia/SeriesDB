@@ -1,0 +1,33 @@
+// Fichero para definir el estilo de la cabecera
+.web.header {
+    background-color: @header-color;
+    .brand {
+        font-size: 28px;
+        font-family: @font-family-serif;
+    }
+    .form.search {
+    	margin-top: 6px;	
+    }
+    .main.menu {
+        ul {
+            .horizontal-list();
+            text-align: center; // al ser el display inline, el contenido se comporta como texto
+            margin-left: 4px;
+            li {
+                margin-left: -4px;
+            }
+            a {
+                color: white;
+                display: inline-block;
+                text-decoration: none; // eliminar subrayado
+                background-color: darken(@header-color, 30%);
+                padding: 10px 20px; // padding horizontal mayor que le vertical
+                transition: background 250ms; // si en algun momento cambia la propiedad background
+                &:hover {
+                    color: black;
+                    background-color: lighten(@header-color, 10%);
+                }
+            }
+        }
+    }
+}

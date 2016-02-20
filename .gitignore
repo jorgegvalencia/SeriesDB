@@ -6,3 +6,7 @@ Thumbs.db
 
 # CSS files
 style.css
+
+# Archivos de sublime text
+seriesdb.sublime-project
+seriesdb.sublime-workspace

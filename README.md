@@ -12,7 +12,7 @@ An awesome clone of The Movies Database to learn HTML5, CSS3 and JavaScript
 
 ## Setup del entorno de desarrollo
 
-Debes tener isntalado [nodejs](https://nodejs.org/en/) y con *npm* instalar* y *less* utilizando:
+Debes tener instalado [nodejs](https://nodejs.org/en/) y con *npm* instalar y *less* utilizando:
 
 ```
 

@@ -1,16 +1,8 @@
 .media.item {
-    height: 300px;
-    margin-bottom: 25px;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    margin: 25px;
+    padding: 10px;
     .cover {
         overflow: hidden;
-    }
-    &:hover {
-        img {
-            // .img-responsive();
-            transform: scale(1.2);
-        }
     }
     .link {
         color: @main-text-color;
@@ -42,5 +34,15 @@
     }
     .overview {
         text-align: justify;
+    }
+    .video-wrapper {
+    	perspective: 2000px;
+    }
+    .video {
+    	animation: bounceInDown 2s;
+    	width: 100%;
+    	height: 451px;
+    	background-color: black;
+    	// transform: rotateY(-50deg);
     }
 }

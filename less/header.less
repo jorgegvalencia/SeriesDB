@@ -1,14 +1,23 @@
 // Fichero para definir el estilo de la cabecera
 .web.header {
+    font-weight: bold;
     background-color: @header-color;
     .brand {
         font-size: 28px;
         font-family: @font-family-serif;
     }
     .form.search {
-    	margin-top: 6px;	
+        .if-is-mobile( {
+            display: none;
+        }
+        );
+        margin-top: 6px;
     }
     .main.menu {
+        .if-is-mobile( {
+            display: none;
+        }
+        );
         ul {
             .horizontal-list();
             text-align: center; // al ser el display inline, el contenido se comporta como texto
@@ -20,12 +29,12 @@
                 color: white;
                 display: inline-block;
                 text-decoration: none; // eliminar subrayado
-                background-color: darken(@header-color, 30%);
+                background-color: darken(@header-color, 50%);
                 padding: 10px 20px; // padding horizontal mayor que le vertical
                 transition: background 250ms; // si en algun momento cambia la propiedad background
                 &:hover {
                     color: black;
-                    background-color: lighten(@header-color, 10%);
+                    background-color: darken(@header-color, 30%);
                 }
             }
         }

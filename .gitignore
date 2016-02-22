@@ -8,5 +8,5 @@ Thumbs.db
 style.css
 
 # Archivos de sublime text
-seriesdb.sublime-project
-seriesdb.sublime-workspace
+*.sublime-project
+*.sublime-workspace

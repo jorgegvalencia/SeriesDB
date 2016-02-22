@@ -1,5 +1,46 @@
 .media.item {
-	img{
-		.img-responsive();
-	}
+    height: 300px;
+    margin-bottom: 25px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    .cover {
+        overflow: hidden;
+    }
+    &:hover {
+        img {
+            // .img-responsive();
+            transform: scale(1.2);
+        }
+    }
+    .link {
+        color: @main-text-color;
+    }
+    img {
+        .img-responsive();
+        transition: 250ms;
+    }
+    .wrapper {
+        margin: 0 15px 15px 15px;
+    }
+    .title {
+        font-size: 18px;
+        margin: 0 0 15px 0;
+    }
+    .categories ul {
+        .horizontal-list();
+        li:after {
+            //al final del contenido del elemento
+            content: ",";
+        }
+        li:last-child:after {
+            content: "";
+        }
+    }
+    .rating {
+        display: inline;
+        margin-left: 20px;
+    }
+    .overview {
+        text-align: justify;
+    }
 }

@@ -7,27 +7,26 @@
 </head>
 
 <body>
-    <div id="container" style="background-color: gold; padding: 20px;">
-        <div id="content" style="background-color: coral; padding: 20px;">
-            This is the content
-        </div>
-    </div>
-    <a href="http://www.google.com/" target="blank">Ir a Google</a>
-
+    <button id="changeBackgroundColor">Cambiar color de fondo</button>
     <script>
-    document.getElementById('container').addEventListener('click', function(event) {
-        console.log("CONTAINER CLICKED");
-    }, true);
-    document.getElementById('content').addEventListener('click', function(event) {
-    	event.stopPropagation();
-        console.log("content clicked");
-    });
-    document.body.addEventListener('click', function(event) {
-        console.log("BODY CLICKED");
-    });
-    document.getElementsByTagName('a')[0].addEventListener('click', function(event) {
-    	console.log("Google link");
-    	event.preventDefault();
+    var timeoutID = null;
+
+    document.getElementById('changeBackgroundColor').addEventListener('click', function(event) {
+        console.log("Hago click en el botón");
+        document.body.style.transition = 'background-color 300ms';
+        if (timeoutID != null) {
+            clearTimeout(timeoutID);
+        }
+        timeoutID = setTimeout(function() {
+            var currentColor = document.body.style.backgroundColor;
+            console.log("Ha terminado el timeout y cambio color");
+            if (currentColor == 'coral') {
+                document.body.style.backgroundColor = 'white';
+            } else {
+                document.body.style.backgroundColor = 'coral';
+            }
+            timeoutID = null;
+        }, 2000);
     });
     </script>
 </body>

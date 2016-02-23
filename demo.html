@@ -8,22 +8,12 @@
 
 <body>
     <div id="demo">Hello World</div>
-    <button id="updateDateButton">Update date</button>
-    <button id="addListenerButton">Add listener</button>
-    <button id="removeListenerButton">Remove listener</button>
+    <button id="saveButton">Save</button>
     <script>
-    function updateDate() {
-    	console.log("updateDate")
-        document.getElementById('demo').innerHTML = new Date()
-    }
-    document.getElementById('addListenerButton').addEventListener('click', function() {
-    	console.log("addListenerButton",arguments);
-        document.getElementById("updateDateButton").addEventListener('click', updateDate);
-    });
-    document.getElementById('removeListenerButton').addEventListener('click', function() {
-    	console.log("removeListenerButton",arguments);
-        document.getElementById("updateDateButton").removeEventListener('click', updateDate);
-    });
+    document.getElementById('demo').contentEditable = true;
+    document.getElementById('saveButton').addEventListener('click', function (evt) {
+    	console.log("Contenido", document.getElementById('demo').innerHTML);
+    })
     </script>
 </body>
 

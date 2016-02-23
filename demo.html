@@ -12,16 +12,22 @@
             This is the content
         </div>
     </div>
+    <a href="http://www.google.com/" target="blank">Ir a Google</a>
+
     <script>
     document.getElementById('container').addEventListener('click', function(event) {
         console.log("CONTAINER CLICKED");
-    });
+    }, true);
     document.getElementById('content').addEventListener('click', function(event) {
     	event.stopPropagation();
         console.log("content clicked");
     });
     document.body.addEventListener('click', function(event) {
         console.log("BODY CLICKED");
+    });
+    document.getElementsByTagName('a')[0].addEventListener('click', function(event) {
+    	console.log("Google link");
+    	event.preventDefault();
     });
     </script>
 </body>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="demo">Hello World</div>
+    <button id="updateDateButton">Update date</button>
+    <button id="addListenerButton">Add listener</button>
+    <button id="removeListenerButton">Remove listener</button>
+    <script>
+    function updateDate() {
+        document.getElementById('demo').innerHTML = new Date()
+    }
+
+    function addListener() {
+        document.getElementById("updateDateButton").addEventListener('click', updateDate);
+    }
+
+    function removeListener() {
+        document.getElementById("updateDateButton").removeEventListener('click', updateDate);
+    }
+    // añadir manejadores a los botones que añaden o quitan el manejador del boton actualizar fechha
+    document.getElementById('addListenerButton').addEventListener('click', addListener);
+    document.getElementById('removeListenerButton').addEventListener('click', removeListener);
+    </script>
+</body>
+
+</html>

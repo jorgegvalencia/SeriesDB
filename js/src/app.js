@@ -29,7 +29,7 @@ $(document).ready(function() { // Cuando la página se ha cargado por completo
 
 		$.ajax({
 			url: "/api/series",
-			data: JSON.stringlify({
+			data: JSON.stringify({
 				title: title,
 				url: url
 			}),
@@ -45,6 +45,8 @@ $(document).ready(function() { // Cuando la página se ha cargado por completo
 		});
 
 		// con un return true podemos indicar una validación correcta del formulario y permitir enviar el formulario
-		return true; 
+		// sin embargo, al hacer la petición POST con AJAX, debemos evitar el comportamiento por defecto del submit para
+		// no reenviar otra petición
+		return false; 
 	});
 });

@@ -27,7 +27,24 @@ $(document).ready(function() { // Cuando la página se ha cargado por completo
 			return false;
 		}
 
-		// con un return true podemos indicar una validación correcta del formulario
+		$.ajax({
+			url: "/api/series",
+			data: JSON.stringlify({
+				title: title,
+				url: url
+			}),
+			dataType: 'json',
+			contentType: 'application/json',
+			method: 'post',
+			success: function () {
+				alert('Guardado con éxito');
+			},
+			error: function () {
+				alert('Se ha producido un error');
+			}
+		});
+
+		// con un return true podemos indicar una validación correcta del formulario y permitir enviar el formulario
 		return true; 
 	});
 });

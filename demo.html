@@ -10,8 +10,7 @@
     <button id="getDataButton">Get data</button>
     <div id="content"></div>
     <script>
-
-    document.getElementById('getDataButton').addEventListener('click', function() {
+        document.getElementById('getDataButton').addEventListener('click', function() {
         console.log("Configuro XMLHttpRequest");
         var xhr = new XMLHttpRequest();
         xhr.open("GET", "/data.json", true);

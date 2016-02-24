@@ -22,7 +22,7 @@ $(document).ready(function() { // Cuando la página se ha cargado por completo
 		}
 		// validación categorías
 		var selectedCategories = $('input[name="category"]:checked');
-		if ( selectedCategories.lenght == 0 ) {
+		if ( selectedCategories.length == 0 ) {
 			alert('Selecciona al menos una categoría');
 			return false;
 		}

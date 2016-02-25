@@ -16,3 +16,6 @@ style.css
 
 # Sparrest db
 db/
+
+# Python
+*.py*

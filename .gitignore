@@ -1,6 +1,9 @@
 # Node modules
 node_modules/
 
+# Bower components
+bower_components/
+
 # Archivos del SO
 Thumbs.db
 
@@ -10,3 +13,9 @@ style.css
 # Archivos de sublime text
 *.sublime-project
 *.sublime-workspace
+
+# Sparrest db
+db/
+
+# Python
+*.py*

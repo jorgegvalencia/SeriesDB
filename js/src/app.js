@@ -97,7 +97,7 @@ $(document).ready(function() { // Cuando la página se ha cargado por completo
     				$(self).parent().remove();
     			}
     		});
-    })
+    });
 
     // -----------------------------------------------------------
 

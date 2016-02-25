@@ -13,3 +13,6 @@ style.css
 # Archivos de sublime text
 *.sublime-project
 *.sublime-workspace
+
+# Sparrest db
+db/

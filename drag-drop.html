@@ -49,6 +49,7 @@
         console.log("Drag START", evt);
         var movieId = $(this).data("movieId");
         draggedMovieId = movieId;
+        // establecer los datos a transferir en el drag en el evento
         evt.originalEvent.dataTransfer.setData("movieId", movieId); // recibimos un evento jQuery, por tanto originalEvent
 
     }).on('dragend', function(evt) { // cuando paramos el drag, sin soltar
@@ -60,6 +61,7 @@
 
     $("#drop").on('dragover', function(evt) { // cuando el elemento draggable se situa sobre un elemento donde se puede dropear
 
+    	// dragover y dragenter no permiten acceder a los datos del evento, por ello la variable global
         evt.preventDefault();
         console.log("Drag OVER", evt);
         if (draggedMovieId == "B")
@@ -77,7 +79,7 @@
 
         evt.preventDefault();
         console.log("DROP", evt);
-
+        // tomar los datos del elemento arrastrado, a través del evento
         var movieId = evt.originalEvent.dataTransfer.getData("movieId");
         if (movieId != "B") {
         	var text = $(this).text();

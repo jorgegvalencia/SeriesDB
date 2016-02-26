@@ -1,0 +1,19 @@
+.media.list {
+    .media.item {
+        height: 275px;
+        text-overflow: ellipsis;
+        border: 1px solid #ddd;
+        box-shadow: 0 0 10px #ccc;
+        overflow: hidden;
+        .if-is-mobile( {
+            height: auto;
+        }
+        );
+        &:hover {
+            img {
+                // .img-responsive();
+                transform: scale(1.2);
+            }
+        }
+    }
+}

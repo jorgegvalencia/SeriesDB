@@ -4,6 +4,10 @@ An awesome clone of The Movies Database to learn HTML5, CSS3 and JavaScript
 
 ## Changelog
 
+### v.1.0.0 - 2016-02-26
+
+Acabando el curso de Front-end avanzado. Be front-end my friend.
+
 ### v.0.1.0 - 2016-02-17
 
 * Plantilla formulario de creación de serie

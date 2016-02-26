@@ -10,9 +10,17 @@
     <button id="requestButton">Detectar posición</button>
     <button id="stopButton">Parar monitorización</button>
     <div id="data"></div>
+    <div id="map" style="width: 100%; height: 300px;"></div>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script>
     var operationID = null;
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 18,
+        center: new google.maps.LatLng(0, 0)
+    });
+
+
     $('#requestButton').on('click', function() {
 
         // Solicita la poición actual de manera asíncrona
@@ -25,6 +33,10 @@
                 html += "<li><strong>Precisión: </strong>" + data.coords.accuracy + "</li>";
                 html += "</ul>";
                 $('#data').html(html);
+                map.setCenter(new google.maps.LatLng(
+                    data.coords.latitude,
+                    data.coords.longitude
+                ));
             },
             function(error) { //error
                 console.error("Geolocalización fallida", error);
@@ -37,7 +49,7 @@
     });
 
     $('#stopButton').click(function() {
-    	console.log("Parando detección");
+        console.log("Parando detección");
         navigator.geolocation.clearWatch(operationID);
     })
     </script>

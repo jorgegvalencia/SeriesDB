@@ -8,27 +8,38 @@
 
 <body>
     <button id="requestButton">Detectar posición</button>
+    <button id="stopButton">Parar monitorización</button>
     <div id="data"></div>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
     <script>
+    var operationID = null;
     $('#requestButton').on('click', function() {
 
         // Solicita la poición actual de manera asíncrona
-        navigator.geolocation.getCurrentPosition(
+        operationID = navigator.geolocation.watchPosition(
             function(data) { //success
                 console.log("Geolocalización conseguida", data);
+                var html = "<ul>";
+                html += "<li><strong>Latitud: </strong>" + data.coords.latitude + "</li>";
+                html += "<li><strong>Longitud: </strong>" + data.coords.longitude + "</li>";
+                html += "<li><strong>Precisión: </strong>" + data.coords.accuracy + "</li>";
+                html += "</ul>";
+                $('#data').html(html);
             },
             function(error) { //error
                 console.error("Geolocalización fallida", error);
             }, { // options
-            	enableHighAccuracy: true,
-            	maximumAge: 0 // sin cache
-            	// timeout: 0 // infinito
+                enableHighAccuracy: true,
+                maximumAge: 0 // sin cache
             }
         );
+        console.log("Operation ID", operationID);
     });
 
-
+    $('#stopButton').click(function() {
+    	console.log("Parando detección");
+        navigator.geolocation.clearWatch(operationID);
+    })
     </script>
 </body>
 

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Drag & Drop</title>
+    <style>
+    .drag {
+        width: 100px;
+        height: 100px;
+        background-color: gold;
+        margin-right: 10px;
+        float: left;
+    }
+    
+    #drop {
+        width: 100%;
+        height: 200px;
+        background-color: black;
+        position: fixed;
+        bottom: 0px;
+        transition: background 250ms;
+        color: coral;
+        font-size: 35px;
+    }
+    
+    #drop.ok {
+        background: lightgreen;
+    }
+    
+    #drop.error {
+        background: tomato;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="drag" draggable="true" data-movie-id="A">A</div>
+    <div class="drag" draggable="true" data-movie-id="B">B</div>
+    <div class="drag" draggable="true" data-movie-id="C">C</div>
+    <div class="drag" draggable="true" data-movie-id="D">D</div>
+    <div class="drag" draggable="true" data-movie-id="E">E</div>
+    <div id="drop"></div>
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script>
+    var draggedMovieId = null;
+    $('.drag').on('dragstart', function(evt) { // cuando comenzamos el drag del elemento
+
+        console.log("Drag START", evt);
+        var movieId = $(this).data("movieId");
+        draggedMovieId = movieId;
+        evt.originalEvent.dataTransfer.setData("movieId", movieId); // recibimos un evento jQuery, por tanto originalEvent
+
+    }).on('dragend', function(evt) { // cuando paramos el drag, sin soltar
+
+        console.log("Drag STOP", evt);
+        draggedMovieId = null;
+
+    });
+
+    $("#drop").on('dragover', function(evt) { // cuando el elemento draggable se situa sobre un elemento donde se puede dropear
+
+        evt.preventDefault();
+        console.log("Drag OVER", evt);
+        if (draggedMovieId == "B")
+            $(this).addClass("error");
+        else
+            $(this).addClass("ok");
+
+    }).on('dragleave', function(evt) { // al abandonar la zona del drop
+
+        evt.preventDefault();
+        console.log("Drag LEAVE", evt);
+        $(this).removeClass("ok error");
+
+    }).on('drop', function(evt) { // al soltar lo que hemos arrastrado
+
+        evt.preventDefault();
+        console.log("DROP", evt);
+
+        var movieId = evt.originalEvent.dataTransfer.getData("movieId");
+        if (movieId != "B") {
+        	var text = $(this).text();
+        	text += movieId;
+        	$(this).text(text);
+        }
+        $(this).removeClass("ok error")
+
+    });
+    </script>
+</body>
+
+</html>
